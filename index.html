@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahir Jawad — ML Engineer & AI Researcher</title>
+    <meta name="description" content="Portfolio of MD Mahir Jawad — Machine Learning Engineer, AI Researcher, and published author at the intersection of Deep Learning, NLP, and Computer Vision.">
+    <meta property="og:title" content="Mahir Jawad — ML Engineer & AI Researcher">
+    <meta property="og:description" content="Building intelligent systems at the intersection of Deep Learning, NLP, and Computer Vision.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#050505',
+                        surface: '#0a0a0a',
+                        accent: '#10b981',
+                        'accent-dim': '#065f46',
+                        muted: '#6b7280',
+                        subtle: '#a3a3a3',
+                    },
+                    fontFamily: {
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"DM Sans"', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #1a1a1a #050505; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
+
+        body {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        ::selection { background: rgba(16,185,129,0.3); color: #fff; }
+        *:focus-visible { outline: 2px solid #10b981; outline-offset: 2px; }
+
+        /* 浮动光晕 */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(130px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 520px; height: 520px;
+            background: rgba(16,185,129,0.035);
+            top: -120px; right: -160px;
+            animation: orbFloat1 22s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 420px; height: 420px;
+            background: rgba(6,95,70,0.04);
+            bottom: -80px; left: -120px;
+            animation: orbFloat2 28s ease-in-out infinite;
+        }
+        @keyframes orbFloat1 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(-90px, 70px); }
+            66% { transform: translate(50px, -50px); }
+        }
+        @keyframes orbFloat2 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(70px, -90px); }
+            66% { transform: translate(-50px, 50px); }
+        }
+
+        /* Hero 鼠标跟随光晕 */
+        .hero-section { position: relative; overflow: hidden; }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%);
+            left: var(--mx, 50%);
+            top: var(--my, 50%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: left 0.15s ease-out, top 0.15s ease-out;
+            z-index: 0;
+        }
+
+        /* Hero 入场动画 */
+        .hero-enter > * {
+            opacity: 0;
+            animation: heroIn 0.85s ease forwards;
+        }
+        .hero-enter > *:nth-child(1) { animation-delay: 0.15s; }
+        .hero-enter > *:nth-child(2) { animation-delay: 0.3s; }
+        .hero-enter > *:nth-child(3) { animation-delay: 0.45s; }
+        .hero-enter > *:nth-child(4) { animation-delay: 0.6s; }
+        @keyframes heroIn {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 滚动提示动画 */
+        .scroll-hint { animation: scrollBounce 2.2s ease-in-out infinite; }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        /* 时间线竖线 */
+        .timeline-line {
+            position: absolute;
+            left: 7px; top: 26px; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(16,185,129,0.25), rgba(16,185,129,0.03));
+        }
+
+        /* 移动端菜单 */
+        .mobile-overlay {
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-overlay .mobile-link {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .mobile-overlay.open .mobile-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-overlay.open .mobile-link:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-overlay.open .mobile-link:nth-child(2) { transition-delay: 0.1s; }
+        .mobile-overlay.open .mobile-link:nth-child(3) { transition-delay: 0.15s; }
+        .mobile-overlay.open .mobile-link:nth-child(4) { transition-delay: 0.2s; }
+        .mobile-overlay.open .mobile-link:nth-child(5) { transition-delay: 0.25s; }
+
+        /* 无障碍：减少动画 */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body class="bg-bg text-white font-body antialiased">
+    <div id="root"></div>
+
+    <!-- React 18 生产构建 -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" data-type="module">
+        // ═══════════════════════════════════════════════
+        // React Hooks
+        // ═══════════════════════════════════════════════
+        const { useState, useEffect, useRef } = React;
+
+        /** 跟踪页面滚动位置 */
+        function useScrollPosition() {
+            const [scrollY, setScrollY] = useState(0);
+            useEffect(() => {
+                const onScroll = () => setScrollY(window.scrollY);
+                window.addEventListener('scroll', onScroll, { passive: true });
+                return () => window.removeEventListener('scroll', onScroll);
+            }, []);
+            return scrollY;
+        }
+
+        /** 检测元素是否进入视口（只触发一次） */
+        function useInView(opts = {}) {
+            const ref = useRef(null);
+            const [inView, setInView] = useState(false);
+            useEffect(() => {
+                const el = ref.current;
+                if (!el) return;
+                const obs = new IntersectionObserver(
+                    ([e]) => { if (e.isIntersecting) { setInView(true); obs.unobserve(e.target); } },
+                    { threshold: 0.08, ...opts }
+                );
+                obs.observe(el);
+                return () => obs.disconnect();
+            }, []);
+            return [ref, inView];
+        }
+
+        // ═══════════════════════════════════════════════
+        // SVG 图标组件
+        // ═══════════════════════════════════════════════
+        const svgBase = { xmlns: "http://www.w3.org/2000/svg", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" };
+
+        function MailIcon(p) {
+            return <svg {...svgBase} width="18" height="18" viewBox="0 0 24 24" {...p}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
+        }
+        function PhoneIcon(p) {
+            return <svg {...svgBase} width="18" height="18" viewBox="0 0 24 24" {...p}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
+        }
+        function MenuIcon(p) {
+            return <svg {...svgBase} width="22" height="22" viewBox="0 0 24 24" {...p}><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>;
+        }
+        function XIcon(p) {
+            return <svg {...svgBase} width="22" height="22" viewBox="0 0 24 24" {...p}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>;
+        }
+        function ChevronDown(p) {
+            return <svg {...svgBase} width="20" height="20" viewBox="0 0 24 24" {...p}><path d="m6 9 6 6 6-6"/></svg>;
+        }
+        function AwardIcon(p) {
+            return <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" {...p}><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>;
+        }
+        function GithubIcon(p) {
+            return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>;
+        }
+        function LinkedinIcon(p) {
+            return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.126 2.062 2.062 0 0 1 0 4.126zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>;
+        }
+        function ScholarIcon(p) {
+            return <svg {...svgBase} width="18" height="18" viewBox="0 0 24 24" {...p}><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/></svg>;
+        }
+
+        // ═══════════════════════════════════════════════
+        // 通用组件
+        // ═══════════════════════════════════════════════
+
+        /** 滚动渐入包裹器 */
+        function FadeIn({ children, className = '', delay = 0 }) {
+            const [ref, inView] = useInView();
+            return (
+                <div ref={ref} className={className} style={{
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? 'translateY(0)' : 'translateY(28px)',
+                    transition: `opacity 0.7s cubic-bezier(.22,1,.36,1) ${delay}s, transform 0.7s cubic-bezier(.22,1,.36,1) ${delay}s`,
+                }}>
+                    {children}
+                </div>
+            );
+        }
+
+        /** 区块标题标签 */
+        function SectionLabel({ children }) {
+            return <span className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-accent block mb-3">{children}</span>;
+        }
+
+        // ═══════════════════════════════════════════════
+        // 导航栏组件
+        // ═══════════════════════════════════════════════
+        function Navbar() {
+            const scrollY = useScrollPosition();
+            const [open, setOpen] = useState(false);
+            const links = ['About', 'Experience', 'Research', 'Skills', 'Education', 'Contact'];
+
+            // 窗口放大时自动关闭菜单
+            useEffect(() => {
+                const onResize = () => { if (window.innerWidth >= 1024) setOpen(false); };
+                window.addEventListener('resize', onResize);
+                return () => window.removeEventListener('resize', onResize);
+            }, []);
+
+            // 菜单打开时锁定页面滚动
+            useEffect(() => {
+                document.body.style.overflow = open ? 'hidden' : '';
+                return () => { document.body.style.overflow = ''; };
+            }, [open]);
+
+            return (
+                <>
+                    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollY > 60 ? 'bg-bg/80 backdrop-blur-2xl border-b border-white/[0.04]' : ''}`}
+                         role="navigation" aria-label="Main navigation">
+                        <div className="max-w-[1080px] mx-auto px-6 h-16 flex items-center justify-between">
+                            <a href="#" className="font-display font-bold text-[17px] text-white tracking-tight">Mahir Jawad</a>
+                            <div className="hidden lg:flex items-center gap-8">
+                                {links.map(l => (
+                                    <a key={l} href={`#${l.toLowerCase()}`}
+                                       className="text-[13px] text-subtle hover:text-white transition-colors duration-200 font-medium">
+                                        {l}
+                                    </a>
+                                ))}
+                            </div>
+                            <button className="lg:hidden text-white/80 hover:text-white transition-colors"
+                                    onClick={() => setOpen(true)} aria-label="Open menu">
+                                <MenuIcon />
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* 移动端全屏覆盖菜单 */}
+                    <div className={`mobile-overlay fixed inset-0 z-[60] bg-bg/[0.97] backdrop-blur-2xl flex items-center justify-center ${open ? 'open' : ''}`}>
+                        <button className="absolute top-5 right-6 text-white/80 hover:text-white transition-colors"
+                                onClick={() => setOpen(false)} aria-label="Close menu">
+                            <XIcon />
+                        </button>
+                        <div className="flex flex-col items-center gap-7">
+                            {links.map(l => (
+                                <a key={l} href={`#${l.toLowerCase()}`}
+                                   className="mobile-link text-2xl font-display font-semibold text-white hover:text-accent transition-colors"
+                                   onClick={() => setOpen(false)}>
+                                    {l}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Hero 组件
+        // ═══════════════════════════════════════════════
+        function Hero() {
+            const ref = useRef(null);
+
+            useEffect(() => {
+                const el = ref.current;
+                let raf;
+                const onMove = (e) => {
+                    if (raf) cancelAnimationFrame(raf);
+                    raf = requestAnimationFrame(() => {
+                        const r = el.getBoundingClientRect();
+                        el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                        el.style.setProperty('--my', `${e.clientY - r.top}px`);
+                    });
+                };
+                el.addEventListener('mousemove', onMove);
+                return () => { el.removeEventListener('mousemove', onMove); if (raf) cancelAnimationFrame(raf); };
+            }, []);
+
+            return (
+                <section ref={ref} className="hero-section min-h-screen flex items-center justify-center relative">
+                    <div className="relative z-10 text-center px-6 max-w-3xl mx-auto hero-enter">
+                        <p className="text-sm font-display text-accent mb-7 tracking-wide font-medium">
+                            Machine Learning Engineer&nbsp;&nbsp;·&nbsp;&nbsp;AI Researcher
+                        </p>
+                        <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white mb-7 leading-[0.95] tracking-tight">
+                            <span className="text-accent">Mahir</span> Jawad
+                        </h1>
+                        <p className="text-lg md:text-xl text-subtle mb-11 max-w-xl mx-auto leading-relaxed font-light">
+                            Building intelligent systems at the intersection of Deep Learning, NLP, and Computer Vision.
+                        </p>
+                        <div className="flex items-center justify-center gap-4 flex-wrap">
+                            <a href="#research"
+                               className="px-7 py-3 bg-accent text-bg font-display font-semibold text-sm rounded-lg hover:brightness-110 transition-all duration-200 active:scale-[0.97]">
+                                View Research
+                            </a>
+                            <a href="#contact"
+                               className="px-7 py-3 border border-white/[0.12] text-white font-display font-semibold text-sm rounded-lg hover:border-white/25 hover:bg-white/[0.04] transition-all duration-200 active:scale-[0.97]">
+                                Get in Touch
+                            </a>
+                        </div>
+                    </div>
+                    <div className="absolute bottom-8 right-8 text-muted scroll-hint hidden md:block">
+                        <ChevronDown />
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // About 组件
+        // ═══════════════════════════════════════════════
+        function About() {
+            const highlights = [
+                '3 Published & Upcoming Research Papers',
+                'Best Long Paper Award — BLP 2025',
+                'Project Lead — BIM Model Automation',
+                'IELTS 7.5  |  GRE 302',
+                "BRAC University CSE '24",
+            ];
+            return (
+                <section id="about" className="py-24 md:py-32 relative">
+                    <div className="max-w-[1080px] mx-auto px-6">
+                        <FadeIn><SectionLabel>About</SectionLabel></FadeIn>
+                        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 mt-6">
+                            <FadeIn className="lg:col-span-3" delay={0.08}>
+                                <p className="text-subtle text-[17px] leading-[1.8] mb-5">
+                                    A BRAC University Computer Science graduate currently leading the BIM Model Automation
+                                    project at Penta Global Ltd, where I architect deep learning pipelines for automated
+                                    scaffolding generation, PDF parsing, and CAD-to-3D conversion.
+                                </p>
+                                <p className="text-subtle text-[17px] leading-[1.8]">
+                                    My research spans large language models, computer vision, and quantum machine learning —
+                                    with publications at <span className="text-white font-medium">ACL 2026</span> and{' '}
+                                    <span className="text-white font-medium">ICECET 2025</span>, and a{' '}
+                                    <span className="text-accent font-medium">Best Long Paper Award</span> at the
+                                    IJCNLP-AACL BLP 2025 workshop. I thrive at the boundary between rigorous research
+                                    and production-grade engineering.
+                                </p>
+                            </FadeIn>
+                            <FadeIn className="lg:col-span-2" delay={0.18}>
+                                <div className="space-y-5 pt-1">
+                                    {highlights.map((h, i) => (
+                                        <div key={i} className="flex items-start gap-3.5">
+                                            <span className="mt-[7px] w-[7px] h-[7px] rounded-full bg-accent flex-shrink-0" />
+                                            <span className="text-white text-[15px] font-medium leading-snug">{h}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </FadeIn>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Experience 组件（时间线布局）
+        // ═══════════════════════════════════════════════
+        function Experience() {
+            const data = [
+                {
+                    role: 'Machine Learning Engineer',
+                    company: 'Penta Global Ltd',
+                    period: 'Aug 2025 – Present',
+                    current: true,
+                    bullets: [
+                        'Leading the BIM Model Automation project — end-to-end deep learning pipelines for automated scaffolding generation from architectural documents.',
+                        'Building systems for PDF parsing and CAD-to-3D model conversion, bridging document intelligence with spatial computing.',
+                    ],
+                },
+                {
+                    role: 'Machine Learning Engineer',
+                    company: 'Penta Global Ltd',
+                    period: 'May 2025 – Jul 2025',
+                    current: false,
+                    bullets: [
+                        'Developed deep expertise in LLM architectures, Retrieval-Augmented Generation (RAG), and Model Context Protocol (MCP).',
+                        'Delivered multiple production-grade projects across NLP, RAG pipelines, and LLM fine-tuning.',
+                    ],
+                },
+                {
+                    role: 'UI/UX Developer',
+                    company: 'Synergy Bangladesh',
+                    period: 'Jul 2024 – Oct 2024',
+                    current: false,
+                    bullets: [
+                        'Designed and developed canvas-bd.com using Odoo, integrating web design workflows with enterprise ERP systems.',
+                    ],
+                },
+            ];
+
+            return (
+                <section id="experience" className="py-24 md:py-32 relative">
+                    <div className="max-w-[1080px] mx-auto px-6">
+                        <FadeIn><SectionLabel>Experience</SectionLabel></FadeIn>
+                        <div className="relative pl-9 mt-12">
+                            <div className="timeline-line" />
+                            {data.map((exp, i) => (
+                                <FadeIn key={i} delay={i * 0.1} className="relative mb-14 last:mb-0">
+                                    {/* 时间线圆点 */}
+                                    <div className={`absolute -left-9 top-[6px] w-[15px] h-[15px] rounded-full border-2 transition-colors duration-500 ${exp.current ? 'bg-accent border-accent shadow-[0_0_12px_rgba(16,185,129,0.3)]' : 'bg-bg border-accent/30'}`} />
+                                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 mb-2.5">
+                                        <h3 className="font-display font-semibold text-white text-[17px]">{exp.role}</h3>
+                                        <span className="text-[13px] text-muted whitespace-nowrap">
+                                            {exp.company}&ensp;·&ensp;{exp.period}
+                                        </span>
+                                    </div>
+                                    <ul className="space-y-2">
+                                        {exp.bullets.map((b, j) => (
+                                            <li key={j} className="text-subtle text-[15px] leading-relaxed flex gap-2.5">
+                                                <span className="text-accent/40 select-none mt-px">—</span>
+                                                <span>{b}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Research 组件（核心亮点区块）
+        // ═══════════════════════════════════════════════
+        function Research() {
+            const publications = [
+                {
+                    title: 'Evaluating Large Vision Language Models on Bangla Medical Visual Question Answering',
+                    venue: 'ACL 2026',
+                    tag: 'published',
+                    summary: 'Assessed state-of-the-art vision-language models on Bengali medical VQA benchmarks, identifying critical gaps in cross-lingual medical visual reasoning.',
+                },
+                {
+                    title: 'Exploring LLM and ML Models for Sentiment Analysis of Bengali Natok Reviews',
+                    venue: 'ICECET 2025, France',
+                    tag: 'published',
+                    summary: 'Compared transformer-based and traditional ML approaches for sentiment classification on Bengali drama reviews, establishing new baselines.',
+                },
+                {
+                    title: 'Quantum Hamiltonian-Informed Neural Tangent Kernel: A Framework for Enhanced Generalisation in QML',
+                    venue: 'Ongoing',
+                    tag: 'ongoing',
+                    summary: 'Developing a novel NTK-based framework incorporating quantum Hamiltonian structure to improve generalization bounds in quantum machine learning.',
+                },
+            ];
+
+            const workshops = [
+                {
+                    title: 'Benchmarking LLMs on Bangla Dialect Translation and Dialectal Sentiment Analysis',
+                    venue: 'IJCNLP-AACL BLP 2025',
+                    award: true,
+                },
+                {
+                    title: 'Linear Probing of Pre-trained Transformer-based Models for Bangla Hate Speech Detection',
+                    venue: 'IJCNLP-AACL BLP 2025',
+                    award: false,
+                },
+            ];
+
+            return (
+                <section id="research" className="py-24 md:py-32 relative">
+                    {/* 微弱的翡翠色背景渐变，突出此区块 */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.012] to-transparent pointer-events-none" />
+                    <div className="max-w-[1080px] mx-auto px-6 relative">
+                        <FadeIn>
+                            <SectionLabel>Research</SectionLabel>
+                            <h2 className="font-display font-bold text-3xl md:text-4xl text-white mt-1 mb-14 tracking-tight">Publications & Work</h2>
+                        </FadeIn>
+
+                        {/* 发表论文 */}
+                        <div className="mb-16">
+                            <FadeIn><h3 className="font-display font-semibold text-white text-base mb-6">Publications</h3></FadeIn>
+                            <div className="space-y-4">
+                                {publications.map((p, i) => (
+                                    <FadeIn key={i} delay={i * 0.07}>
+                                        <div className="p-6 border border-white/[0.05] rounded-xl hover:border-accent/20 transition-colors duration-300 group">
+                                            <div className="mb-3">
+                                                <span className={`text-[11px] font-display font-bold px-2.5 py-1 rounded-md tracking-wide ${p.tag === 'ongoing' ? 'bg-white/[0.04] text-muted' : 'bg-accent/[0.08] text-accent'}`}>
+                                                    {p.venue}
+                                                </span>
+                                            </div>
+                                            <h4 className="font-display font-medium text-white text-[15px] leading-snug mb-2.5 group-hover:text-accent/90 transition-colors duration-300">
+                                                {p.title}
+                                            </h4>
+                                            <p className="text-sm text-muted leading-relaxed">{p.summary}</p>
+                                        </div>
+                                    </FadeIn>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Workshop 论文 */}
+                        <div className="mb-16">
+                            <FadeIn><h3 className="font-display font-semibold text-white text-base mb-6">Workshops</h3></FadeIn>
+                            <div className="space-y-4">
+                                {workshops.map((w, i) => (
+                                    <FadeIn key={i} delay={i * 0.07}>
+                                        <div className="p-6 border border-white/[0.05] rounded-xl hover:border-accent/20 transition-colors duration-300">
+                                            <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                                                <span className="text-[11px] font-display font-bold px-2.5 py-1 rounded-md bg-accent/[0.08] text-accent tracking-wide">
+                                                    {w.venue}
+                                                </span>
+                                                {w.award && (
+                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold bg-accent/[0.08] text-accent rounded-md border border-accent/20 tracking-wide">
+                                                        <AwardIcon /> Best Long Paper Award
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <h4 className="font-display font-medium text-white text-[15px] leading-snug">{w.title}</h4>
+                                        </div>
+                                    </FadeIn>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* 毕业论文 */}
+                        <FadeIn>
+                            <h3 className="font-display font-semibold text-white text-base mb-4">Thesis</h3>
+                            <div className="p-6 border border-white/[0.05] rounded-xl">
+                                <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                                    <span className="text-[11px] font-display font-bold px-2.5 py-1 rounded-md bg-white/[0.04] text-muted tracking-wide">BRAC University</span>
+                                    <span className="text-[11px] font-display font-bold px-2.5 py-1 rounded-md bg-white/[0.04] text-muted tracking-wide">Unpublished</span>
+                                </div>
+                                <h4 className="font-display font-medium text-white text-[15px] leading-snug">
+                                    Image Processing and Deep Learning for Space Telescope Images: An Exploratory Data Analysis Approach
+                                </h4>
+                            </div>
+                        </FadeIn>
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Skills 组件
+        // ═══════════════════════════════════════════════
+        function Skills() {
+            const categories = [
+                { label: 'Programming', items: ['Python', 'Java', 'C++', 'TensorFlow', 'PyTorch'] },
+                { label: 'Tools & Platforms', items: ['Docker', 'Git', 'VS Code', 'Android Studio', 'Revit', 'AutoCAD'] },
+                { label: 'Domains', items: ['Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision', 'LLMs', 'RAG', 'Quantum Computing', 'Reinforcement Learning'] },
+            ];
+            return (
+                <section id="skills" className="py-24 md:py-32 relative">
+                    <div className="max-w-[1080px] mx-auto px-6">
+                        <FadeIn><SectionLabel>Skills</SectionLabel></FadeIn>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-10">
+                            {categories.map((cat, i) => (
+                                <FadeIn key={i} delay={i * 0.1}>
+                                    <h3 className="font-display font-semibold text-white text-[13px] uppercase tracking-widest mb-6">{cat.label}</h3>
+                                    <div className="flex flex-wrap gap-2.5">
+                                        {cat.items.map((item, j) => (
+                                            <span key={j}
+                                                  className="px-4 py-2 text-[13px] border border-white/[0.08] rounded-full text-subtle hover:border-accent/35 hover:text-white transition-all duration-300 cursor-default font-medium">
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Education 组件
+        // ═══════════════════════════════════════════════
+        function Education() {
+            const data = [
+                { degree: 'B.Sc. in Computer Science & Engineering', school: 'BRAC University, Dhaka', detail: 'CGPA: 3.09 / 4.00', period: 'Oct 2024' },
+                { degree: 'Higher Secondary School Certificate', school: 'Cantonment English School & College, Chattogram', detail: 'GPA: 5.00 / 5.00', period: '' },
+            ];
+            return (
+                <section id="education" className="py-24 md:py-32 relative">
+                    <div className="max-w-[1080px] mx-auto px-6">
+                        <FadeIn><SectionLabel>Education</SectionLabel></FadeIn>
+                        <div className="space-y-4 mt-10">
+                            {data.map((e, i) => (
+                                <FadeIn key={i} delay={i * 0.1}>
+                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-5 border border-white/[0.05] rounded-xl hover:border-white/[0.1] transition-colors duration-300 gap-2">
+                                        <div>
+                                            <h3 className="font-display font-semibold text-white text-[15px]">{e.degree}</h3>
+                                            <p className="text-sm text-muted mt-1">{e.school}</p>
+                                        </div>
+                                        <div className="flex items-center gap-4 sm:text-right">
+                                            <span className="text-sm text-accent font-medium">{e.detail}</span>
+                                            {e.period && <span className="text-sm text-muted">{e.period}</span>}
+                                        </div>
+                                    </div>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Contact 组件
+        // ═══════════════════════════════════════════════
+        function Contact() {
+            const links = [
+                { Icon: MailIcon, label: 'Email', value: 'mahirjawad98@gmail.com', href: 'mailto:mahirjawad98@gmail.com' },
+                { Icon: PhoneIcon, label: 'Phone', value: '+880 1619 645814', href: 'tel:+8801619645814' },
+                { Icon: GithubIcon, label: 'GitHub', value: 'github.com/mahirjawad', href: '#' },
+                { Icon: ScholarIcon, label: 'Scholar', value: 'Google Scholar', href: '#' },
+                { Icon: LinkedinIcon, label: 'LinkedIn', value: 'linkedin.com/in/mahirjawad', href: '#' },
+            ];
+            return (
+                <section id="contact" className="py-24 md:py-32 relative">
+                    <div className="max-w-[1080px] mx-auto px-6">
+                        <FadeIn><SectionLabel>Contact</SectionLabel></FadeIn>
+                        <FadeIn delay={0.08} className="mt-4 mb-12">
+                            <p className="text-subtle text-lg max-w-lg leading-relaxed">
+                                Open to research collaborations, ML engineering roles, and interesting conversations about the future of AI.
+                            </p>
+                        </FadeIn>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                            {links.map((c, i) => (
+                                <FadeIn key={i} delay={0.12 + i * 0.04}>
+                                    <a href={c.href} target="_blank" rel="noopener noreferrer"
+                                       className="flex items-center gap-4 p-4 border border-white/[0.05] rounded-xl hover:border-accent/20 hover:bg-white/[0.015] transition-all duration-300 group">
+                                        <span className="text-muted group-hover:text-accent transition-colors duration-300 flex-shrink-0">
+                                            <c.Icon />
+                                        </span>
+                                        <div className="min-w-0">
+                                            <p className="text-[11px] text-muted uppercase tracking-widest font-medium">{c.label}</p>
+                                            <p className="text-sm text-white mt-0.5 truncate">{c.value}</p>
+                                        </div>
+                                    </a>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // Footer 组件
+        // ═══════════════════════════════════════════════
+        function Footer() {
+            return (
+                <footer className="py-8 border-t border-white/[0.04]" role="contentinfo">
+                    <div className="max-w-[1080px] mx-auto px-6 text-center">
+                        <p className="text-[13px] text-muted">&copy; 2025 Mahir Jawad. Built with purpose.</p>
+                    </div>
+                </footer>
+            );
+        }
+
+        // ═══════════════════════════════════════════════
+        // App 根组件 & 渲染
+        // ═══════════════════════════════════════════════
+        function App() {
+            return (
+                <div className="relative min-h-screen">
+                    {/* 背景浮动光晕 */}
+                    <div className="orb orb-1" aria-hidden="true" />
+                    <div className="orb orb-2" aria-hidden="true" />
+
+                    <Navbar />
+                    <main>
+                        <Hero />
+                        <About />
+                        <Experience />
+                        <Research />
+                        <Skills />
+                        <Education />
+                        <Contact />
+                    </main>
+                    <Footer />
+                </div>
+            );
+        }
+
+        // React 18 createRoot API
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
