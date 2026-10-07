@@ -1,752 +1,696 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahir Jawad — ML Engineer & AI Researcher</title>
-    <meta name="description" content="Portfolio of MD Mahir Jawad — Machine Learning Engineer, AI Researcher, and published author at the intersection of Deep Learning, NLP, and Computer Vision.">
-    <meta property="og:title" content="Mahir Jawad — ML Engineer & AI Researcher">
-    <meta property="og:description" content="Building intelligent systems at the intersection of Deep Learning, NLP, and Computer Vision.">
+    <title>Mahir Jawad — Machine Learning Engineer &amp; NLP Researcher</title>
+    <meta name="description" content="Md Mahir Jawad — Machine Learning Engineer at Penta Global building AI for BIM automation, and NLP researcher with papers at EMNLP 2026, Findings of ACL 2026 and a Best Long Paper Award at BLP 2025.">
+    <meta name="author" content="Md Mahir Jawad">
+    <link rel="canonical" href="https://portfolio-new-taupe-mu-41.vercel.app/">
+
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio-new-taupe-mu-41.vercel.app/">
+    <meta property="og:title" content="Mahir Jawad — Machine Learning Engineer & NLP Researcher">
+    <meta property="og:description" content="AI for BIM automation at Penta Global. Research on LLMs and vision-language models for Bangla — EMNLP 2026, Findings of ACL 2026, Best Long Paper at BLP 2025.">
+    <meta property="og:image" content="https://portfolio-new-taupe-mu-41.vercel.app/assets/img/mahir-jawad-square.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="theme-color" content="#070a09">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+    <!-- Set theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            var d = document.documentElement, t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'light' && t !== 'dark') {
+                t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            d.setAttribute('data-theme', t);
+            d.classList.add('js');
+            // If main.js never runs, drop the hidden reveal state so content stays visible
+            setTimeout(function () { if (!window.__portfolioReady) d.classList.remove('js'); }, 2500);
+        })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bg: '#050505',
-                        surface: '#0a0a0a',
-                        accent: '#10b981',
-                        'accent-dim': '#065f46',
-                        muted: '#6b7280',
-                        subtle: '#a3a3a3',
-                    },
-                    fontFamily: {
-                        display: ['"Space Grotesk"', 'sans-serif'],
-                        body: ['"DM Sans"', 'sans-serif'],
-                    },
-                },
-            },
-        };
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Md Mahir Jawad",
+        "jobTitle": "Machine Learning Engineer",
+        "worksFor": { "@type": "Organization", "name": "Penta Global Ltd" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "BRAC University" },
+        "email": "mailto:mahirjawad98@gmail.com",
+        "image": "https://portfolio-new-taupe-mu-41.vercel.app/assets/img/mahir-jawad-square.jpg",
+        "url": "https://portfolio-new-taupe-mu-41.vercel.app/",
+        "sameAs": [
+            "https://github.com/147MahirJawad",
+            "https://scholar.google.com/citations?user=-GLkEJUAAAAJ&hl=en",
+            "https://www.linkedin.com/in/mahir-jawad-61139521a/"
+        ]
+    }
     </script>
-
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #1a1a1a #050505; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2a2a2a; }
-
-        body {
-            background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-        ::selection { background: rgba(16,185,129,0.3); color: #fff; }
-        *:focus-visible { outline: 2px solid #10b981; outline-offset: 2px; }
-
-        /* 浮动光晕 */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(130px);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .orb-1 {
-            width: 520px; height: 520px;
-            background: rgba(16,185,129,0.035);
-            top: -120px; right: -160px;
-            animation: orbFloat1 22s ease-in-out infinite;
-        }
-        .orb-2 {
-            width: 420px; height: 420px;
-            background: rgba(6,95,70,0.04);
-            bottom: -80px; left: -120px;
-            animation: orbFloat2 28s ease-in-out infinite;
-        }
-        @keyframes orbFloat1 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(-90px, 70px); }
-            66% { transform: translate(50px, -50px); }
-        }
-        @keyframes orbFloat2 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(70px, -90px); }
-            66% { transform: translate(-50px, 50px); }
-        }
-
-        /* Hero 鼠标跟随光晕 */
-        .hero-section { position: relative; overflow: hidden; }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%);
-            left: var(--mx, 50%);
-            top: var(--my, 50%);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            transition: left 0.15s ease-out, top 0.15s ease-out;
-            z-index: 0;
-        }
-
-        /* Hero 入场动画 */
-        .hero-enter > * {
-            opacity: 0;
-            animation: heroIn 0.85s ease forwards;
-        }
-        .hero-enter > *:nth-child(1) { animation-delay: 0.15s; }
-        .hero-enter > *:nth-child(2) { animation-delay: 0.3s; }
-        .hero-enter > *:nth-child(3) { animation-delay: 0.45s; }
-        .hero-enter > *:nth-child(4) { animation-delay: 0.6s; }
-        @keyframes heroIn {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 滚动提示动画 */
-        .scroll-hint { animation: scrollBounce 2.2s ease-in-out infinite; }
-        @keyframes scrollBounce {
-            0%, 100% { transform: translateY(0); opacity: 0.5; }
-            50% { transform: translateY(10px); opacity: 1; }
-        }
-
-        /* 时间线竖线 */
-        .timeline-line {
-            position: absolute;
-            left: 7px; top: 26px; bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, rgba(16,185,129,0.25), rgba(16,185,129,0.03));
-        }
-
-        /* 移动端菜单 */
-        .mobile-overlay {
-            opacity: 0;
-            transition: opacity 0.25s ease;
-            pointer-events: none;
-        }
-        .mobile-overlay.open {
-            opacity: 1;
-            pointer-events: all;
-        }
-        .mobile-overlay .mobile-link {
-            opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        .mobile-overlay.open .mobile-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .mobile-overlay.open .mobile-link:nth-child(1) { transition-delay: 0.05s; }
-        .mobile-overlay.open .mobile-link:nth-child(2) { transition-delay: 0.1s; }
-        .mobile-overlay.open .mobile-link:nth-child(3) { transition-delay: 0.15s; }
-        .mobile-overlay.open .mobile-link:nth-child(4) { transition-delay: 0.2s; }
-        .mobile-overlay.open .mobile-link:nth-child(5) { transition-delay: 0.25s; }
-
-        /* 无障碍：减少动画 */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-            html { scroll-behavior: auto; }
-        }
-    </style>
 </head>
-<body class="bg-bg text-white font-body antialiased">
-    <div id="root"></div>
+<body id="top">
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.126 2.062 2.062 0 0 1 0 4.126zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+        <symbol id="i-scholar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></g></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></g></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></g></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></g></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></g></symbol>
+        <symbol id="i-paper" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></g></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></g></symbol>
+        <symbol id="i-database" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></g></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></g></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+        <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></g></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></g></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+        <symbol id="i-coins" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></g></symbol>
+        <symbol id="i-blocks" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="8" y="14" width="8" height="8" rx="1"/><path d="M6 10v2h12v-2M12 12v2"/></g></symbol>
+        <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></g></symbol>
+        <symbol id="i-film" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></g></symbol>
+        <symbol id="i-scan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="8" width="10" height="8" rx="1"/></g></symbol>
+    </svg>
 
-    <!-- React 18 生产构建 -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <script type="text/babel" data-type="module">
-        // ═══════════════════════════════════════════════
-        // React Hooks
-        // ═══════════════════════════════════════════════
-        const { useState, useEffect, useRef } = React;
+    <!-- ═════════════ Header ═════════════ -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top" aria-label="Mahir Jawad, back to top">
+                <span class="brand-mark" aria-hidden="true">MJ</span>
+                <span class="brand-name">Mahir Jawad</span>
+            </a>
 
-        /** 跟踪页面滚动位置 */
-        function useScrollPosition() {
-            const [scrollY, setScrollY] = useState(0);
-            useEffect(() => {
-                const onScroll = () => setScrollY(window.scrollY);
-                window.addEventListener('scroll', onScroll, { passive: true });
-                return () => window.removeEventListener('scroll', onScroll);
-            }, []);
-            return scrollY;
-        }
+            <nav class="site-nav" id="site-nav" aria-label="Primary">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#experience">Experience</a></li>
+                    <li><a class="nav-link" href="#research">Research</a></li>
+                    <li><a class="nav-link" href="#projects">Projects</a></li>
+                    <li><a class="nav-link" href="#skills">Skills</a></li>
+                    <li><a class="nav-link" href="#education">Education</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary nav-cv" href="assets/Mahir_Jawad_CV.pdf" download="Mahir_Jawad_CV.pdf">
+                    <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download CV
+                </a>
+            </nav>
 
-        /** 检测元素是否进入视口（只触发一次） */
-        function useInView(opts = {}) {
-            const ref = useRef(null);
-            const [inView, setInView] = useState(false);
-            useEffect(() => {
-                const el = ref.current;
-                if (!el) return;
-                const obs = new IntersectionObserver(
-                    ([e]) => { if (e.isIntersecting) { setInView(true); obs.unobserve(e.target); } },
-                    { threshold: 0.08, ...opts }
-                );
-                obs.observe(el);
-                return () => obs.disconnect();
-            }, []);
-            return [ref, inView];
-        }
+            <div class="header-actions">
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme">
+                    <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+                    <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+                </button>
+                <a class="btn btn-ghost btn-sm header-cv" href="assets/Mahir_Jawad_CV.pdf" download="Mahir_Jawad_CV.pdf">
+                    <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> CV
+                </a>
+                <button class="icon-btn nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+                    <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+                    <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
 
-        // ═══════════════════════════════════════════════
-        // SVG 图标组件
-        // ═══════════════════════════════════════════════
-        const svgBase = { xmlns: "http://www.w3.org/2000/svg", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" };
-
-        function MailIcon(p) {
-            return <svg {...svgBase} width="18" height="18" viewBox="0 0 24 24" {...p}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>;
-        }
-        function PhoneIcon(p) {
-            return <svg {...svgBase} width="18" height="18" viewBox="0 0 24 24" {...p}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
-        }
-        function MenuIcon(p) {
-            return <svg {...svgBase} width="22" height="22" viewBox="0 0 24 24" {...p}><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>;
-        }
-        function XIcon(p) {
-            return <svg {...svgBase} width="22" height="22" viewBox="0 0 24 24" {...p}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>;
-        }
-        function ChevronDown(p) {
-            return <svg {...svgBase} width="20" height="20" viewBox="0 0 24 24" {...p}><path d="m6 9 6 6 6-6"/></svg>;
-        }
-        function AwardIcon(p) {
-            return <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" {...p}><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>;
-        }
-        function GithubIcon(p) {
-            return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>;
-        }
-        function LinkedinIcon(p) {
-            return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.126 2.062 2.062 0 0 1 0 4.126zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>;
-        }
-        function ScholarIcon(p) {
-            return <svg {...svgBase} width="18" height="18" viewBox="0 0 24 24" {...p}><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/></svg>;
-        }
-
-        // ═══════════════════════════════════════════════
-        // 通用组件
-        // ═══════════════════════════════════════════════
-
-        /** 滚动渐入包裹器 */
-        function FadeIn({ children, className = '', delay = 0 }) {
-            const [ref, inView] = useInView();
-            return (
-                <div ref={ref} className={className} style={{
-                    opacity: inView ? 1 : 0,
-                    transform: inView ? 'translateY(0)' : 'translateY(28px)',
-                    transition: `opacity 0.7s cubic-bezier(.22,1,.36,1) ${delay}s, transform 0.7s cubic-bezier(.22,1,.36,1) ${delay}s`,
-                }}>
-                    {children}
+    <main id="main">
+        <!-- ═════════════ Hero ═════════════ -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="status-pill reveal">
+                        <span class="pulse" aria-hidden="true"></span>
+                        <span>Building <strong>Plinth</strong> at Penta Global</span>
+                    </p>
+                    <p class="eyebrow reveal">Machine Learning Engineer · NLP Researcher</p>
+                    <h1 id="hero-title" class="hero-title reveal">Mahir <span class="accent">Jawad</span></h1>
+                    <p class="hero-lede reveal">
+                        I build AI systems that turn drawings into 3D BIM models, and I research how
+                        large language and vision-language models handle low-resource languages like Bangla.
+                    </p>
+                    <div class="hero-cta reveal">
+                        <a class="btn btn-primary" href="#research">View publications</a>
+                        <a class="btn btn-ghost" href="assets/Mahir_Jawad_CV.pdf" download="Mahir_Jawad_CV.pdf">
+                            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download CV
+                        </a>
+                        <a class="btn btn-link" href="#contact">Get in touch <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                    </div>
+                    <ul class="social-row reveal" aria-label="Profiles">
+                        <li><a class="icon-btn" href="https://github.com/147MahirJawad" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+                        <li><a class="icon-btn" href="https://scholar.google.com/citations?user=-GLkEJUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar (opens in a new tab)" title="Google Scholar"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg></a></li>
+                        <li><a class="icon-btn" href="https://www.linkedin.com/in/mahir-jawad-61139521a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+                        <li><a class="icon-btn" href="mailto:mahirjawad98@gmail.com" aria-label="Email mahirjawad98@gmail.com" title="Email"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+                    </ul>
                 </div>
-            );
-        }
 
-        /** 区块标题标签 */
-        function SectionLabel({ children }) {
-            return <span className="text-xs font-display font-semibold uppercase tracking-[0.2em] text-accent block mb-3">{children}</span>;
-        }
+                <figure class="hero-portrait reveal">
+                    <div class="portrait-frame">
+                        <img src="assets/img/mahir-jawad.jpg" width="480" height="595" alt="Portrait of Mahir Jawad" fetchpriority="high">
+                    </div>
+                    <figcaption class="portrait-badges">
+                        <span class="float-badge float-badge-a">
+                            <svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>
+                            <span><strong>EMNLP 2026</strong> First author</span>
+                        </span>
+                        <span class="float-badge float-badge-b">
+                            <svg class="icon icon-gold" aria-hidden="true"><use href="#i-award"/></svg>
+                            <span><strong>Best Long Paper</strong> BLP 2025</span>
+                        </span>
+                    </figcaption>
+                </figure>
+            </div>
 
-        // ═══════════════════════════════════════════════
-        // 导航栏组件
-        // ═══════════════════════════════════════════════
-        function Navbar() {
-            const scrollY = useScrollPosition();
-            const [open, setOpen] = useState(false);
-            const links = ['About', 'Experience', 'Research', 'Skills', 'Education', 'Contact'];
+            <div class="container">
+                <dl class="stats reveal">
+                    <div class="stat"><dt>Publications</dt><dd>5</dd></div>
+                    <div class="stat"><dt>First-author papers</dt><dd>2</dd></div>
+                    <div class="stat"><dt>Top venues</dt><dd>EMNLP · ACL</dd></div>
+                    <div class="stat"><dt>Best Long Paper</dt><dd>BLP '25</dd></div>
+                </dl>
+            </div>
+        </section>
 
-            // 窗口放大时自动关闭菜单
-            useEffect(() => {
-                const onResize = () => { if (window.innerWidth >= 1024) setOpen(false); };
-                window.addEventListener('resize', onResize);
-                return () => window.removeEventListener('resize', onResize);
-            }, []);
+        <!-- ═════════════ About ═════════════ -->
+        <section id="about" class="section" aria-labelledby="about-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="section-kicker">01 · About</p>
+                    <h2 id="about-title" class="section-title">Research-minded engineer, shipping AI to production</h2>
+                </header>
+                <div class="about-grid">
+                    <div class="prose reveal">
+                        <p>
+                            I'm a Machine Learning Engineer at <strong>Penta Global Ltd</strong> and an M.Sc. student in
+                            Computer Science at <strong>BRAC University</strong>. At work I lead the BIM Model Automation
+                            project, which turns scaffolding drawings, PDFs and CAD files into 3D BIM models. I'm also
+                            building <strong>Plinth</strong>, an AI-powered BIM platform that brings 2D-to-3D modelling,
+                            quantity take-off and model auditing into one place.
+                        </p>
+                        <p>
+                            My research is on large language and vision-language models for low-resource languages,
+                            especially Bangla and its regional dialects. My work has appeared at
+                            <strong>EMNLP 2026</strong> (main conference, first author), <strong>Findings of ACL 2026</strong>
+                            and the <strong>BLP 2025</strong> workshop at IJCNLP-AACL, where our dialect benchmark won the
+                            <span class="accent">Best Long Paper Award</span>.
+                        </p>
+                    </div>
+                    <aside class="card focus-card reveal" aria-label="Focus areas">
+                        <h3 class="card-label">Focus areas</h3>
+                        <ul class="focus-list">
+                            <li>Low-resource &amp; dialectal NLP</li>
+                            <li>Vision-language model evaluation</li>
+                            <li>Computer vision for BIM &amp; construction</li>
+                            <li>LLM agents &amp; MCP tooling</li>
+                            <li>Parameter-efficient fine-tuning (LoRA)</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
 
-            // 菜单打开时锁定页面滚动
-            useEffect(() => {
-                document.body.style.overflow = open ? 'hidden' : '';
-                return () => { document.body.style.overflow = ''; };
-            }, [open]);
+        <!-- ═════════════ Experience ═════════════ -->
+        <section id="experience" class="section" aria-labelledby="experience-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="section-kicker">02 · Experience</p>
+                    <h2 id="experience-title" class="section-title">Where I've worked</h2>
+                </header>
 
-            return (
-                <>
-                    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollY > 60 ? 'bg-bg/80 backdrop-blur-2xl border-b border-white/[0.04]' : ''}`}
-                         role="navigation" aria-label="Main navigation">
-                        <div className="max-w-[1080px] mx-auto px-6 h-16 flex items-center justify-between">
-                            <a href="#" className="font-display font-bold text-[17px] text-white tracking-tight">Mahir Jawad</a>
-                            <div className="hidden lg:flex items-center gap-8">
-                                {links.map(l => (
-                                    <a key={l} href={`#${l.toLowerCase()}`}
-                                       className="text-[13px] text-subtle hover:text-white transition-colors duration-200 font-medium">
-                                        {l}
-                                    </a>
-                                ))}
+                <ol class="timeline">
+                    <li class="timeline-item is-current reveal">
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <article class="card job">
+                            <header class="job-head">
+                                <div>
+                                    <h3 class="job-role">Machine Learning Engineer</h3>
+                                    <p class="job-org">Penta Global Ltd <span class="sep" aria-hidden="true">·</span> Dhaka, Bangladesh</p>
+                                </div>
+                                <div class="job-meta">
+                                    <span class="badge badge-accent">Full-time</span>
+                                    <span class="job-dates">Aug 2025 – Present</span>
+                                </div>
+                            </header>
+                            <ul class="job-points">
+                                <li>Lead the <strong>BIM Model Automation</strong> project, building automated pipelines that turn scaffolding, PDF and CAD inputs into dynamic 3D BIM models.</li>
+                                <li>Develop <strong>Plinth</strong>, an AI-based BIM web application that combines 3D modelling from 2D drawings, quantity take-off (QTO) and model audit in a single platform.</li>
+                            </ul>
+                            <ul class="tags" aria-label="Topics">
+                                <li>BIM automation</li><li>2D → 3D</li><li>QTO</li><li>Model audit</li><li>Autodesk APS</li>
+                            </ul>
+                        </article>
+                    </li>
+
+                    <li class="timeline-item reveal">
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <article class="card job">
+                            <header class="job-head">
+                                <div>
+                                    <h3 class="job-role">Machine Learning Engineer Intern</h3>
+                                    <p class="job-org">Penta Global Ltd <span class="sep" aria-hidden="true">·</span> Dhaka, Bangladesh</p>
+                                </div>
+                                <div class="job-meta">
+                                    <span class="badge">Internship</span>
+                                    <span class="job-dates">May 2025 – Jul 2025</span>
+                                </div>
+                            </header>
+                            <ul class="job-points">
+                                <li>Designed a programmatic ML workflow to fine-tune a <strong>SAM 2 LoRA adapter</strong> and train a <strong>YOLO</strong> locator on annotated floor-plan images for accurate area calculation.</li>
+                                <li>Delivered several end-to-end projects with large language models and the Model Context Protocol (MCP).</li>
+                            </ul>
+                            <ul class="tags" aria-label="Topics">
+                                <li>SAM 2</li><li>LoRA</li><li>YOLO</li><li>LLMs</li><li>MCP</li>
+                            </ul>
+                        </article>
+                    </li>
+
+                    <li class="timeline-item reveal">
+                        <span class="timeline-dot" aria-hidden="true"></span>
+                        <article class="card job">
+                            <header class="job-head">
+                                <div>
+                                    <h3 class="job-role">UI/UX Developer Intern</h3>
+                                    <p class="job-org">Synergy Bangladesh <span class="sep" aria-hidden="true">·</span> Dhaka, Bangladesh</p>
+                                </div>
+                                <div class="job-meta">
+                                    <span class="badge">Internship</span>
+                                    <span class="job-dates">Jul 2024 – Oct 2024</span>
+                                </div>
+                            </header>
+                            <ul class="job-points">
+                                <li>Designed and developed the <a class="inline-link" href="https://www.canvas-bd.com/" target="_blank" rel="noopener noreferrer">canvas-bd.com</a> web platform on Odoo, connecting a modern e-commerce front end with the back-end ERP.</li>
+                            </ul>
+                            <ul class="tags" aria-label="Topics">
+                                <li>Odoo</li><li>E-commerce</li><li>ERP</li><li>UI/UX</li>
+                            </ul>
+                        </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ═════════════ Research ═════════════ -->
+        <section id="research" class="section section-tint" aria-labelledby="research-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="section-kicker">03 · Research</p>
+                    <h2 id="research-title" class="section-title">Publications</h2>
+                    <p class="section-sub">
+                        LLM and VLM evaluation for Bangla: dialects, transliteration, medical VQA and sentiment.
+                        Full list on <a class="inline-link" href="https://scholar.google.com/citations?user=-GLkEJUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.
+                    </p>
+                </header>
+
+                <div class="pub-year">
+                    <h3 class="year-label reveal">2026</h3>
+                    <div class="pub-list">
+                        <article class="card pub reveal">
+                            <div class="pub-badges">
+                                <span class="badge badge-accent">EMNLP 2026 · Main</span>
+                                <span class="badge">Accepted</span>
+                                <span class="badge badge-outline">First author</span>
                             </div>
-                            <button className="lg:hidden text-white/80 hover:text-white transition-colors"
-                                    onClick={() => setOpen(true)} aria-label="Open menu">
-                                <MenuIcon />
+                            <h4 class="pub-title">5-DIALECTS-BN: Unmasking the Impact of Transliteration on Bangla Dialectal LLMs</h4>
+                            <p class="pub-summary">
+                                A 6,000-utterance benchmark across five regional dialects that aligns native script, Romanized
+                                transliteration, Standard Bangla and English. Shows that transliteration consistently degrades
+                                LLMs, and that LoRA with 160 examples per dialect beats closed-source models.
+                            </p>
+                            <div class="pub-links">
+                                <a class="chip-link" href="https://arxiv.org/abs/2609.09964" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>arXiv</a>
+                            </div>
+                        </article>
+
+                        <article class="card pub reveal">
+                            <div class="pub-badges">
+                                <span class="badge badge-accent">Findings of ACL 2026</span>
+                                <span class="badge">Published</span>
+                            </div>
+                            <h4 class="pub-title">Evaluating Large Vision Language Models on Bangla Medical Visual Question Answering</h4>
+                            <p class="pub-summary">
+                                Introduces BanglaMedVQA, a clinically validated medical VQA dataset, and shows that leading
+                                LVLMs fall below chance on fine-grained diagnostic categories such as condition and position.
+                            </p>
+                            <div class="pub-links">
+                                <a class="chip-link" href="https://aclanthology.org/2026.findings-acl.1862/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>Paper</a>
+                                <a class="chip-link" href="https://ahmedrafid023.github.io/med-vqa-page/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>Project page</a>
+                                <a class="chip-link" href="https://huggingface.co/datasets/iiCEMAN/BanglaMedVQA" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-database"/></svg>Dataset</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="pub-year">
+                    <h3 class="year-label reveal">2025</h3>
+                    <div class="pub-list">
+                        <article class="card pub pub-award reveal">
+                            <div class="pub-badges">
+                                <span class="badge badge-accent">BLP 2025 @ IJCNLP-AACL</span>
+                                <span class="badge badge-gold"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>Best Long Paper Award</span>
+                                <span class="badge badge-outline">First author</span>
+                            </div>
+                            <h4 class="pub-title">Benchmarking Large Language Models on Bangla Dialect Translation and Dialectal Sentiment Analysis</h4>
+                            <p class="pub-summary">
+                                A new annotated dataset covering four major Bangla dialects with translations and sentiment
+                                labels, used to benchmark modern LLMs under zero- and few-shot prompting.
+                            </p>
+                            <div class="pub-links">
+                                <a class="chip-link" href="https://aclanthology.org/2025.banglalp-1.26/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>Paper</a>
+                            </div>
+                        </article>
+
+                        <article class="card pub reveal">
+                            <div class="pub-badges">
+                                <span class="badge badge-accent">BLP 2025 @ IJCNLP-AACL</span>
+                                <span class="badge">Shared task</span>
+                            </div>
+                            <h4 class="pub-title">Linear Probing of Pre-trained Transformer-based Models for Bangla Hate Speech Detection</h4>
+                            <p class="pub-summary">
+                                Our BLP-2025 Task 1 system: fine-tuned BERT variants with linear probing on top, a lightweight
+                                way to improve hate speech detection in Bangla YouTube comments.
+                            </p>
+                            <div class="pub-links">
+                                <a class="chip-link" href="https://aclanthology.org/2025.banglalp-1.50/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-paper"/></svg>Paper</a>
+                            </div>
+                        </article>
+
+                        <article class="card pub reveal">
+                            <div class="pub-badges">
+                                <span class="badge badge-accent">ICECET 2025 · Paris, France</span>
+                                <span class="badge">Published</span>
+                            </div>
+                            <h4 class="pub-title">Exploring Large Language Model and Machine Learning Models for Sentiment Analysis of Bengali Natok Reviews</h4>
+                            <p class="pub-summary">
+                                Compares traditional machine learning models with fine-tuned LLMs for sentiment classification
+                                of Bengali drama (natok) reviews, including hyper-parameter and optimizer studies.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="pub-year">
+                    <h3 class="year-label reveal">Thesis</h3>
+                    <div class="pub-list">
+                        <article class="card pub reveal">
+                            <div class="pub-badges">
+                                <span class="badge">B.Sc. thesis · BRAC University</span>
+                                <span class="badge">Unpublished</span>
+                            </div>
+                            <h4 class="pub-title">Image Processing and Deep Learning for Space Telescope Images: An Exploratory Data Analysis Approach</h4>
+                            <div class="pub-links">
+                                <a class="chip-link" href="https://github.com/147MahirJawad/Image-Processing-and-Deep-Learning-on-Space-Telescope-Images-An-Exploratoyr-Data-Analysis-Approach" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════ Projects ═════════════ -->
+        <section id="projects" class="section" aria-labelledby="projects-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="section-kicker">04 · Projects</p>
+                    <h2 id="projects-title" class="section-title">Selected projects</h2>
+                </header>
+
+                <div class="project-grid">
+                    <article class="card project reveal">
+                        <span class="project-icon" aria-hidden="true"><svg class="icon"><use href="#i-eye"/></svg></span>
+                        <h3 class="project-title">UNBLIND</h3>
+                        <p class="project-sub">Vision-language model acuity benchmark</p>
+                        <p class="project-desc">A psychophysics-style benchmark and LoRA fine-tuning study of the visual limits of VLMs, comparing interventions under a cost-matched evaluation protocol.</p>
+                        <ul class="tags" aria-label="Stack"><li>VLMs</li><li>LoRA</li><li>Benchmarking</li></ul>
+                        <p class="project-foot"><span class="muted-note">Research project</span></p>
+                    </article>
+
+                    <article class="card project reveal">
+                        <span class="project-icon" aria-hidden="true"><svg class="icon"><use href="#i-coins"/></svg></span>
+                        <h3 class="project-title">StreamPay</h3>
+                        <p class="project-sub">Decentralized payroll streaming protocol</p>
+                        <p class="project-desc">A Solidity app for time-based ETH salary vesting, employee withdrawals, cancellation settlements and protocol fee accounting, with a MetaMask-connected front end.</p>
+                        <ul class="tags" aria-label="Stack"><li>Solidity</li><li>Ethers.js</li><li>MetaMask</li></ul>
+                        <p class="project-foot"><a class="text-link" href="https://github.com/147MahirJawad/StreamPay-CSE729-Project" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Source code<svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+                    </article>
+
+                    <article class="card project reveal">
+                        <span class="project-icon" aria-hidden="true"><svg class="icon"><use href="#i-blocks"/></svg></span>
+                        <h3 class="project-title">BlockSim</h3>
+                        <p class="project-sub">Blockchain simulation &amp; incentive analysis</p>
+                        <p class="project-desc">Extended a Python blockchain simulator to study miner participation, block intervals, stale rates, transaction ordering and reward halving through configurable experiments.</p>
+                        <ul class="tags" aria-label="Stack"><li>Python</li><li>Simulation</li><li>Data viz</li></ul>
+                        <p class="project-foot"><a class="text-link" href="https://github.com/147MahirJawad/BlockSim_project_CSE729" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Source code<svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+                    </article>
+
+                    <article class="card project reveal">
+                        <span class="project-icon" aria-hidden="true"><svg class="icon"><use href="#i-plug"/></svg></span>
+                        <h3 class="project-title">MCP Sentiment</h3>
+                        <p class="project-sub">Sentiment analysis as an MCP tool</p>
+                        <p class="project-desc">Exposed TextBlob sentiment analysis through a Gradio-based MCP server and built a conversational tool client with Hugging Face smolagents.</p>
+                        <ul class="tags" aria-label="Stack"><li>MCP</li><li>Gradio</li><li>smolagents</li></ul>
+                        <p class="project-foot"><a class="text-link" href="https://github.com/147MahirJawad/MCP-Sentiment" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Source code<svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+                    </article>
+
+                    <article class="card project reveal">
+                        <span class="project-icon" aria-hidden="true"><svg class="icon"><use href="#i-film"/></svg></span>
+                        <h3 class="project-title">IMDb Sentiment</h3>
+                        <p class="project-sub">BERT fine-tuning for review classification</p>
+                        <p class="project-desc">Fine-tuned a pretrained BERT model with a custom classification head in PyTorch to label movie reviews as positive or negative.</p>
+                        <ul class="tags" aria-label="Stack"><li>PyTorch</li><li>BERT</li><li>NLP</li></ul>
+                        <p class="project-foot"><a class="text-link" href="https://github.com/147MahirJawad/Sentiment-classification-of-IMDB-movie-review-dataset-using-Bert-PreTrained-Model" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Source code<svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+                    </article>
+
+                    <article class="card project reveal">
+                        <span class="project-icon" aria-hidden="true"><svg class="icon"><use href="#i-scan"/></svg></span>
+                        <h3 class="project-title">Street Signboard Detection</h3>
+                        <p class="project-sub">Object detection in street imagery</p>
+                        <p class="project-desc">Trained and evaluated a YOLOv8 object detection model to find shop signboards in street images.</p>
+                        <ul class="tags" aria-label="Stack"><li>YOLOv8</li><li>Computer vision</li></ul>
+                        <p class="project-foot"><a class="text-link" href="https://github.com/147MahirJawad/Image-Processing-Street-Signboards" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>Source code<svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+                    </article>
+                </div>
+
+                <p class="more-link reveal">
+                    <a class="btn btn-ghost" href="https://github.com/147MahirJawad?tab=repositories" target="_blank" rel="noopener noreferrer">
+                        <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> All repositories on GitHub
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ═════════════ Skills ═════════════ -->
+        <section id="skills" class="section" aria-labelledby="skills-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="section-kicker">05 · Skills</p>
+                    <h2 id="skills-title" class="section-title">Toolbox</h2>
+                </header>
+
+                <div class="skills-grid">
+                    <div class="card skill-group reveal">
+                        <h3 class="card-label">Programming languages</h3>
+                        <ul class="chips"><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>Kotlin</li></ul>
+                    </div>
+                    <div class="card skill-group reveal">
+                        <h3 class="card-label">Machine learning &amp; CV</h3>
+                        <ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>YOLO</li><li>Grounded SAM 2</li><li>Roboflow</li><li>CVAT</li><li>RAG</li><li>MCP</li><li>AI agents</li></ul>
+                    </div>
+                    <div class="card skill-group reveal">
+                        <h3 class="card-label">Tools &amp; frameworks</h3>
+                        <ul class="chips"><li>FastAPI</li><li>Docker</li><li>Git</li><li>Autodesk Platform Services (APS)</li><li>Visual Studio</li><li>Android Studio</li><li>Odoo</li></ul>
+                    </div>
+                    <div class="card skill-group reveal">
+                        <h3 class="card-label">Research methods</h3>
+                        <ul class="chips"><li>LLM benchmarking</li><li>VLM evaluation</li><li>LoRA fine-tuning</li><li>Dataset curation</li><li>Zero/few-shot prompting</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════ Education ═════════════ -->
+        <section id="education" class="section" aria-labelledby="education-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="section-kicker">06 · Education</p>
+                    <h2 id="education-title" class="section-title">Education &amp; credentials</h2>
+                </header>
+
+                <div class="edu-list">
+                    <article class="card edu reveal">
+                        <div>
+                            <h3 class="edu-degree">M.Sc. in Computer Science</h3>
+                            <p class="edu-school">BRAC University, Dhaka</p>
+                        </div>
+                        <div class="edu-meta">
+                            <span class="badge badge-accent">In progress</span>
+                            <span class="edu-dates">Jun 2025 – Jun 2027 (expected)</span>
+                        </div>
+                    </article>
+                    <article class="card edu reveal">
+                        <div>
+                            <h3 class="edu-degree">B.Sc. in Computer Science and Engineering</h3>
+                            <p class="edu-school">BRAC University, Dhaka</p>
+                        </div>
+                        <div class="edu-meta">
+                            <span class="edu-dates">Completed Oct 2024</span>
+                        </div>
+                    </article>
+                    <article class="card edu reveal">
+                        <div>
+                            <h3 class="edu-degree">Higher Secondary School Certificate</h3>
+                            <p class="edu-school">Cantonment English School &amp; College, Chattogram</p>
+                        </div>
+                        <div class="edu-meta">
+                            <span class="edu-dates">Completed</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="cred-grid">
+                    <div class="score-stack">
+                    <article class="card score reveal">
+                        <header class="score-head">
+                            <div>
+                                <h3 class="score-name">IELTS</h3>
+                                <p class="score-date">December 2024</p>
+                            </div>
+                            <p class="score-total"><span>7.5</span> overall</p>
+                        </header>
+                        <dl class="score-parts">
+                            <div><dt>Listening</dt><dd>8.0</dd></div>
+                            <div><dt>Reading</dt><dd>7.5</dd></div>
+                            <div><dt>Writing</dt><dd>7.5</dd></div>
+                            <div><dt>Speaking</dt><dd>7.0</dd></div>
+                        </dl>
+                    </article>
+                    <article class="card score reveal">
+                        <header class="score-head">
+                            <div>
+                                <h3 class="score-name">GRE</h3>
+                                <p class="score-date">January 2025</p>
+                            </div>
+                            <p class="score-total"><span>302</span> total</p>
+                        </header>
+                        <dl class="score-parts score-parts-3">
+                            <div><dt>Quant</dt><dd>155</dd></div>
+                            <div><dt>Verbal</dt><dd>147</dd></div>
+                            <div><dt>Analytical</dt><dd>4.0</dd></div>
+                        </dl>
+                    </article>
+                    </div>
+                    <article class="card activities reveal">
+                        <h3 class="card-label">Achievements &amp; activities</h3>
+                        <ul class="activity-list">
+                            <li><strong>Best Long Paper Award</strong>, BLP 2025 Workshop at IJCNLP-AACL</li>
+                            <li><strong>Sergeant</strong>, Bangladesh National Cadet Corps (BNCC) <span class="muted">2014 – 2018</span></li>
+                            <li><strong>Ranked 22nd (Divisional)</strong>, National Earth Olympiad <span class="muted">Jun 2015</span></li>
+                            <li><strong>General Member</strong>, BRAC University Robotics Club &amp; Computer Club <span class="muted">2020 – 2023</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════ Contact ═════════════ -->
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <div class="contact-intro">
+                        <p class="section-kicker">07 · Contact</p>
+                        <h2 id="contact-title" class="section-title">Let's work together</h2>
+                        <p class="section-sub">
+                            Open to research collaborations, ML engineering roles and conversations about applied AI.
+                            Email is the fastest way to reach me.
+                        </p>
+                        <div class="contact-cta">
+                            <a class="btn btn-primary" href="mailto:mahirjawad98@gmail.com">
+                                <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Email me
+                            </a>
+                            <button class="btn btn-ghost copy-btn" type="button" data-copy="mahirjawad98@gmail.com">
+                                <svg class="icon icon-copy" aria-hidden="true"><use href="#i-copy"/></svg>
+                                <svg class="icon icon-check" aria-hidden="true"><use href="#i-check"/></svg>
+                                <span data-copy-label>Copy email</span>
                             </button>
                         </div>
-                    </nav>
-
-                    {/* 移动端全屏覆盖菜单 */}
-                    <div className={`mobile-overlay fixed inset-0 z-[60] bg-bg/[0.97] backdrop-blur-2xl flex items-center justify-center ${open ? 'open' : ''}`}>
-                        <button className="absolute top-5 right-6 text-white/80 hover:text-white transition-colors"
-                                onClick={() => setOpen(false)} aria-label="Close menu">
-                            <XIcon />
-                        </button>
-                        <div className="flex flex-col items-center gap-7">
-                            {links.map(l => (
-                                <a key={l} href={`#${l.toLowerCase()}`}
-                                   className="mobile-link text-2xl font-display font-semibold text-white hover:text-accent transition-colors"
-                                   onClick={() => setOpen(false)}>
-                                    {l}
-                                </a>
-                            ))}
-                        </div>
                     </div>
-                </>
-            );
-        }
 
-        // ═══════════════════════════════════════════════
-        // Hero 组件
-        // ═══════════════════════════════════════════════
-        function Hero() {
-            const ref = useRef(null);
-
-            useEffect(() => {
-                const el = ref.current;
-                let raf;
-                const onMove = (e) => {
-                    if (raf) cancelAnimationFrame(raf);
-                    raf = requestAnimationFrame(() => {
-                        const r = el.getBoundingClientRect();
-                        el.style.setProperty('--mx', `${e.clientX - r.left}px`);
-                        el.style.setProperty('--my', `${e.clientY - r.top}px`);
-                    });
-                };
-                el.addEventListener('mousemove', onMove);
-                return () => { el.removeEventListener('mousemove', onMove); if (raf) cancelAnimationFrame(raf); };
-            }, []);
-
-            return (
-                <section ref={ref} className="hero-section min-h-screen flex items-center justify-center relative">
-                    <div className="relative z-10 text-center px-6 max-w-3xl mx-auto hero-enter">
-                        <p className="text-sm font-display text-accent mb-7 tracking-wide font-medium">
-                            Machine Learning Engineer&nbsp;&nbsp;·&nbsp;&nbsp;AI Researcher
-                        </p>
-                        <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-white mb-7 leading-[0.95] tracking-tight">
-                            <span className="text-accent">Mahir</span> Jawad
-                        </h1>
-                        <p className="text-lg md:text-xl text-subtle mb-11 max-w-xl mx-auto leading-relaxed font-light">
-                            Building intelligent systems at the intersection of Deep Learning, NLP, and Computer Vision.
-                        </p>
-                        <div className="flex items-center justify-center gap-4 flex-wrap">
-                            <a href="#research"
-                               className="px-7 py-3 bg-accent text-bg font-display font-semibold text-sm rounded-lg hover:brightness-110 transition-all duration-200 active:scale-[0.97]">
-                                View Research
+                    <ul class="contact-list">
+                        <li>
+                            <a class="contact-item" href="mailto:mahirjawad98@gmail.com">
+                                <span class="contact-icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+                                <span class="contact-text"><span class="contact-label">Email</span><span class="contact-value">mahirjawad98@gmail.com</span></span>
                             </a>
-                            <a href="#contact"
-                               className="px-7 py-3 border border-white/[0.12] text-white font-display font-semibold text-sm rounded-lg hover:border-white/25 hover:bg-white/[0.04] transition-all duration-200 active:scale-[0.97]">
-                                Get in Touch
+                        </li>
+                        <li>
+                            <a class="contact-item" href="tel:+8801619645814">
+                                <span class="contact-icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+                                <span class="contact-text"><span class="contact-label">Phone</span><span class="contact-value">+880 1619-645814</span></span>
                             </a>
-                        </div>
-                    </div>
-                    <div className="absolute bottom-8 right-8 text-muted scroll-hint hidden md:block">
-                        <ChevronDown />
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // About 组件
-        // ═══════════════════════════════════════════════
-        function About() {
-            const highlights = [
-                '3 Published & Upcoming Research Papers',
-                'Best Long Paper Award — BLP 2025',
-                'Project Lead — BIM Model Automation',
-                'IELTS 7.5  |  GRE 302',
-                "BRAC University CSE '24",
-            ];
-            return (
-                <section id="about" className="py-24 md:py-32 relative">
-                    <div className="max-w-[1080px] mx-auto px-6">
-                        <FadeIn><SectionLabel>About</SectionLabel></FadeIn>
-                        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 mt-6">
-                            <FadeIn className="lg:col-span-3" delay={0.08}>
-                                <p className="text-subtle text-[17px] leading-[1.8] mb-5">
-                                    A BRAC University Computer Science graduate currently leading the BIM Model Automation
-                                    project at Penta Global Ltd, where I architect deep learning pipelines for automated
-                                    scaffolding generation, PDF parsing, and CAD-to-3D conversion.
-                                </p>
-                                <p className="text-subtle text-[17px] leading-[1.8]">
-                                    My research spans large language models, computer vision, and quantum machine learning —
-                                    with publications at <span className="text-white font-medium">ACL 2026</span> and{' '}
-                                    <span className="text-white font-medium">ICECET 2025</span>, and a{' '}
-                                    <span className="text-accent font-medium">Best Long Paper Award</span> at the
-                                    IJCNLP-AACL BLP 2025 workshop. I thrive at the boundary between rigorous research
-                                    and production-grade engineering.
-                                </p>
-                            </FadeIn>
-                            <FadeIn className="lg:col-span-2" delay={0.18}>
-                                <div className="space-y-5 pt-1">
-                                    {highlights.map((h, i) => (
-                                        <div key={i} className="flex items-start gap-3.5">
-                                            <span className="mt-[7px] w-[7px] h-[7px] rounded-full bg-accent flex-shrink-0" />
-                                            <span className="text-white text-[15px] font-medium leading-snug">{h}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </FadeIn>
-                        </div>
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // Experience 组件（时间线布局）
-        // ═══════════════════════════════════════════════
-        function Experience() {
-            const data = [
-                {
-                    role: 'Machine Learning Engineer',
-                    company: 'Penta Global Ltd',
-                    period: 'Aug 2025 – Present',
-                    current: true,
-                    bullets: [
-                        'Leading the BIM Model Automation project — end-to-end deep learning pipelines for automated scaffolding generation from architectural documents.',
-                        'Building systems for PDF parsing and CAD-to-3D model conversion, bridging document intelligence with spatial computing.',
-                    ],
-                },
-                {
-                    role: 'Machine Learning Engineer',
-                    company: 'Penta Global Ltd',
-                    period: 'May 2025 – Jul 2025',
-                    current: false,
-                    bullets: [
-                        'Developed deep expertise in LLM architectures, Retrieval-Augmented Generation (RAG), and Model Context Protocol (MCP).',
-                        'Delivered multiple production-grade projects across NLP, RAG pipelines, and LLM fine-tuning.',
-                    ],
-                },
-                {
-                    role: 'UI/UX Developer',
-                    company: 'Synergy Bangladesh',
-                    period: 'Jul 2024 – Oct 2024',
-                    current: false,
-                    bullets: [
-                        'Designed and developed canvas-bd.com using Odoo, integrating web design workflows with enterprise ERP systems.',
-                    ],
-                },
-            ];
-
-            return (
-                <section id="experience" className="py-24 md:py-32 relative">
-                    <div className="max-w-[1080px] mx-auto px-6">
-                        <FadeIn><SectionLabel>Experience</SectionLabel></FadeIn>
-                        <div className="relative pl-9 mt-12">
-                            <div className="timeline-line" />
-                            {data.map((exp, i) => (
-                                <FadeIn key={i} delay={i * 0.1} className="relative mb-14 last:mb-0">
-                                    {/* 时间线圆点 */}
-                                    <div className={`absolute -left-9 top-[6px] w-[15px] h-[15px] rounded-full border-2 transition-colors duration-500 ${exp.current ? 'bg-accent border-accent shadow-[0_0_12px_rgba(16,185,129,0.3)]' : 'bg-bg border-accent/30'}`} />
-                                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-3 mb-2.5">
-                                        <h3 className="font-display font-semibold text-white text-[17px]">{exp.role}</h3>
-                                        <span className="text-[13px] text-muted whitespace-nowrap">
-                                            {exp.company}&ensp;·&ensp;{exp.period}
-                                        </span>
-                                    </div>
-                                    <ul className="space-y-2">
-                                        {exp.bullets.map((b, j) => (
-                                            <li key={j} className="text-subtle text-[15px] leading-relaxed flex gap-2.5">
-                                                <span className="text-accent/40 select-none mt-px">—</span>
-                                                <span>{b}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </FadeIn>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // Research 组件（核心亮点区块）
-        // ═══════════════════════════════════════════════
-        function Research() {
-            const publications = [
-                {
-                    title: 'Evaluating Large Vision Language Models on Bangla Medical Visual Question Answering',
-                    venue: 'ACL 2026',
-                    tag: 'published',
-                    summary: 'Assessed state-of-the-art vision-language models on Bengali medical VQA benchmarks, identifying critical gaps in cross-lingual medical visual reasoning.',
-                },
-                {
-                    title: 'Exploring LLM and ML Models for Sentiment Analysis of Bengali Natok Reviews',
-                    venue: 'ICECET 2025, France',
-                    tag: 'published',
-                    summary: 'Compared transformer-based and traditional ML approaches for sentiment classification on Bengali drama reviews, establishing new baselines.',
-                },
-                {
-                    title: 'Quantum Hamiltonian-Informed Neural Tangent Kernel: A Framework for Enhanced Generalisation in QML',
-                    venue: 'Ongoing',
-                    tag: 'ongoing',
-                    summary: 'Developing a novel NTK-based framework incorporating quantum Hamiltonian structure to improve generalization bounds in quantum machine learning.',
-                },
-            ];
-
-            const workshops = [
-                {
-                    title: 'Benchmarking LLMs on Bangla Dialect Translation and Dialectal Sentiment Analysis',
-                    venue: 'IJCNLP-AACL BLP 2025',
-                    award: true,
-                },
-                {
-                    title: 'Linear Probing of Pre-trained Transformer-based Models for Bangla Hate Speech Detection',
-                    venue: 'IJCNLP-AACL BLP 2025',
-                    award: false,
-                },
-            ];
-
-            return (
-                <section id="research" className="py-24 md:py-32 relative">
-                    {/* 微弱的翡翠色背景渐变，突出此区块 */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.012] to-transparent pointer-events-none" />
-                    <div className="max-w-[1080px] mx-auto px-6 relative">
-                        <FadeIn>
-                            <SectionLabel>Research</SectionLabel>
-                            <h2 className="font-display font-bold text-3xl md:text-4xl text-white mt-1 mb-14 tracking-tight">Publications & Work</h2>
-                        </FadeIn>
-
-                        {/* 发表论文 */}
-                        <div className="mb-16">
-                            <FadeIn><h3 className="font-display font-semibold text-white text-base mb-6">Publications</h3></FadeIn>
-                            <div className="space-y-4">
-                                {publications.map((p, i) => (
-                                    <FadeIn key={i} delay={i * 0.07}>
-                                        <div className="p-6 border border-white/[0.05] rounded-xl hover:border-accent/20 transition-colors duration-300 group">
-                                            <div className="mb-3">
-                                                <span className={`text-[11px] font-display font-bold px-2.5 py-1 rounded-md tracking-wide ${p.tag === 'ongoing' ? 'bg-white/[0.04] text-muted' : 'bg-accent/[0.08] text-accent'}`}>
-                                                    {p.venue}
-                                                </span>
-                                            </div>
-                                            <h4 className="font-display font-medium text-white text-[15px] leading-snug mb-2.5 group-hover:text-accent/90 transition-colors duration-300">
-                                                {p.title}
-                                            </h4>
-                                            <p className="text-sm text-muted leading-relaxed">{p.summary}</p>
-                                        </div>
-                                    </FadeIn>
-                                ))}
+                        </li>
+                        <li>
+                            <a class="contact-item" href="https://www.linkedin.com/in/mahir-jawad-61139521a/" target="_blank" rel="noopener noreferrer">
+                                <span class="contact-icon" aria-hidden="true"><svg class="icon"><use href="#i-linkedin"/></svg></span>
+                                <span class="contact-text"><span class="contact-label">LinkedIn</span><span class="contact-value">Md Mahir Jawad</span></span>
+                                <svg class="icon icon-sm contact-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="contact-item" href="https://github.com/147MahirJawad" target="_blank" rel="noopener noreferrer">
+                                <span class="contact-icon" aria-hidden="true"><svg class="icon"><use href="#i-github"/></svg></span>
+                                <span class="contact-text"><span class="contact-label">GitHub</span><span class="contact-value">147MahirJawad</span></span>
+                                <svg class="icon icon-sm contact-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="contact-item" href="https://scholar.google.com/citations?user=-GLkEJUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+                                <span class="contact-icon" aria-hidden="true"><svg class="icon"><use href="#i-scholar"/></svg></span>
+                                <span class="contact-text"><span class="contact-label">Google Scholar</span><span class="contact-value">Publications &amp; citations</span></span>
+                                <svg class="icon icon-sm contact-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="contact-item is-static">
+                                <span class="contact-icon" aria-hidden="true"><svg class="icon"><use href="#i-pin"/></svg></span>
+                                <span class="contact-text"><span class="contact-label">Based in</span><span class="contact-value">Chattogram &amp; Dhaka, Bangladesh</span></span>
                             </div>
-                        </div>
-
-                        {/* Workshop 论文 */}
-                        <div className="mb-16">
-                            <FadeIn><h3 className="font-display font-semibold text-white text-base mb-6">Workshops</h3></FadeIn>
-                            <div className="space-y-4">
-                                {workshops.map((w, i) => (
-                                    <FadeIn key={i} delay={i * 0.07}>
-                                        <div className="p-6 border border-white/[0.05] rounded-xl hover:border-accent/20 transition-colors duration-300">
-                                            <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                                                <span className="text-[11px] font-display font-bold px-2.5 py-1 rounded-md bg-accent/[0.08] text-accent tracking-wide">
-                                                    {w.venue}
-                                                </span>
-                                                {w.award && (
-                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold bg-accent/[0.08] text-accent rounded-md border border-accent/20 tracking-wide">
-                                                        <AwardIcon /> Best Long Paper Award
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <h4 className="font-display font-medium text-white text-[15px] leading-snug">{w.title}</h4>
-                                        </div>
-                                    </FadeIn>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* 毕业论文 */}
-                        <FadeIn>
-                            <h3 className="font-display font-semibold text-white text-base mb-4">Thesis</h3>
-                            <div className="p-6 border border-white/[0.05] rounded-xl">
-                                <div className="flex flex-wrap items-center gap-2.5 mb-3">
-                                    <span className="text-[11px] font-display font-bold px-2.5 py-1 rounded-md bg-white/[0.04] text-muted tracking-wide">BRAC University</span>
-                                    <span className="text-[11px] font-display font-bold px-2.5 py-1 rounded-md bg-white/[0.04] text-muted tracking-wide">Unpublished</span>
-                                </div>
-                                <h4 className="font-display font-medium text-white text-[15px] leading-snug">
-                                    Image Processing and Deep Learning for Space Telescope Images: An Exploratory Data Analysis Approach
-                                </h4>
-                            </div>
-                        </FadeIn>
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // Skills 组件
-        // ═══════════════════════════════════════════════
-        function Skills() {
-            const categories = [
-                { label: 'Programming', items: ['Python', 'Java', 'C++', 'TensorFlow', 'PyTorch'] },
-                { label: 'Tools & Platforms', items: ['Docker', 'Git', 'VS Code', 'Android Studio', 'Revit', 'AutoCAD'] },
-                { label: 'Domains', items: ['Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision', 'LLMs', 'RAG', 'Quantum Computing', 'Reinforcement Learning'] },
-            ];
-            return (
-                <section id="skills" className="py-24 md:py-32 relative">
-                    <div className="max-w-[1080px] mx-auto px-6">
-                        <FadeIn><SectionLabel>Skills</SectionLabel></FadeIn>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-10">
-                            {categories.map((cat, i) => (
-                                <FadeIn key={i} delay={i * 0.1}>
-                                    <h3 className="font-display font-semibold text-white text-[13px] uppercase tracking-widest mb-6">{cat.label}</h3>
-                                    <div className="flex flex-wrap gap-2.5">
-                                        {cat.items.map((item, j) => (
-                                            <span key={j}
-                                                  className="px-4 py-2 text-[13px] border border-white/[0.08] rounded-full text-subtle hover:border-accent/35 hover:text-white transition-all duration-300 cursor-default font-medium">
-                                                {item}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </FadeIn>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // Education 组件
-        // ═══════════════════════════════════════════════
-        function Education() {
-            const data = [
-                { degree: 'B.Sc. in Computer Science & Engineering', school: 'BRAC University, Dhaka', period: 'Oct 2024' },
-                { degree: 'Higher Secondary School Certificate', school: 'Cantonment English School & College, Chattogram', period: '' },
-            ];
-            return (
-                <section id="education" className="py-24 md:py-32 relative">
-                    <div className="max-w-[1080px] mx-auto px-6">
-                        <FadeIn><SectionLabel>Education</SectionLabel></FadeIn>
-                        <div className="space-y-4 mt-10">
-                            {data.map((e, i) => (
-                                <FadeIn key={i} delay={i * 0.1}>
-                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-5 border border-white/[0.05] rounded-xl hover:border-white/[0.1] transition-colors duration-300 gap-2">
-                                        <div>
-                                            <h3 className="font-display font-semibold text-white text-[15px]">{e.degree}</h3>
-                                            <p className="text-sm text-muted mt-1">{e.school}</p>
-                                        </div>
-                                        <div className="flex items-center gap-4 sm:text-right">
-                                            {e.period && <span className="text-sm text-muted">{e.period}</span>}
-                                        </div>
-                                    </div>
-                                </FadeIn>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // Contact 组件
-        // ═══════════════════════════════════════════════
-        function Contact() {
-            const links = [
-                { Icon: MailIcon, label: 'Email', value: 'mahirjawad98@gmail.com', href: 'mailto:mahirjawad98@gmail.com' },
-                { Icon: PhoneIcon, label: 'Phone', value: '+880 1619 645814', href: 'tel:+8801619645814' },
-                { Icon: GithubIcon, label: 'GitHub', value: 'github.com/mahirjawad', href: '#' },
-                { Icon: ScholarIcon, label: 'Scholar', value: 'Google Scholar', href: '#' },
-                { Icon: LinkedinIcon, label: 'LinkedIn', value: 'linkedin.com/in/mahirjawad', href: '#' },
-            ];
-            return (
-                <section id="contact" className="py-24 md:py-32 relative">
-                    <div className="max-w-[1080px] mx-auto px-6">
-                        <FadeIn><SectionLabel>Contact</SectionLabel></FadeIn>
-                        <FadeIn delay={0.08} className="mt-4 mb-12">
-                            <p className="text-subtle text-lg max-w-lg leading-relaxed">
-                                Open to research collaborations, ML engineering roles, and interesting conversations about the future of AI.
-                            </p>
-                        </FadeIn>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                            {links.map((c, i) => (
-                                <FadeIn key={i} delay={0.12 + i * 0.04}>
-                                    <a href={c.href} target="_blank" rel="noopener noreferrer"
-                                       className="flex items-center gap-4 p-4 border border-white/[0.05] rounded-xl hover:border-accent/20 hover:bg-white/[0.015] transition-all duration-300 group">
-                                        <span className="text-muted group-hover:text-accent transition-colors duration-300 flex-shrink-0">
-                                            <c.Icon />
-                                        </span>
-                                        <div className="min-w-0">
-                                            <p className="text-[11px] text-muted uppercase tracking-widest font-medium">{c.label}</p>
-                                            <p className="text-sm text-white mt-0.5 truncate">{c.value}</p>
-                                        </div>
-                                    </a>
-                                </FadeIn>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // Footer 组件
-        // ═══════════════════════════════════════════════
-        function Footer() {
-            return (
-                <footer className="py-8 border-t border-white/[0.04]" role="contentinfo">
-                    <div className="max-w-[1080px] mx-auto px-6 text-center">
-                        <p className="text-[13px] text-muted">&copy; 2025 Mahir Jawad. Built with purpose.</p>
-                    </div>
-                </footer>
-            );
-        }
-
-        // ═══════════════════════════════════════════════
-        // App 根组件 & 渲染
-        // ═══════════════════════════════════════════════
-        function App() {
-            return (
-                <div className="relative min-h-screen">
-                    {/* 背景浮动光晕 */}
-                    <div className="orb orb-1" aria-hidden="true" />
-                    <div className="orb orb-2" aria-hidden="true" />
-
-                    <Navbar />
-                    <main>
-                        <Hero />
-                        <About />
-                        <Experience />
-                        <Research />
-                        <Skills />
-                        <Education />
-                        <Contact />
-                    </main>
-                    <Footer />
+                        </li>
+                    </ul>
                 </div>
-            );
-        }
+            </div>
+        </section>
+    </main>
 
-        // React 18 createRoot API
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+    <!-- ═════════════ Footer ═════════════ -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; <span data-year>2026</span> Md Mahir Jawad</p>
+            <ul class="footer-links" aria-label="Footer links">
+                <li><a href="https://github.com/147MahirJawad" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://scholar.google.com/citations?user=-GLkEJUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Scholar</a></li>
+                <li><a href="https://www.linkedin.com/in/mahir-jawad-61139521a/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="assets/Mahir_Jawad_CV.pdf" download="Mahir_Jawad_CV.pdf">CV</a></li>
+            </ul>
+            <a class="back-to-top" href="#top">Back to top <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
