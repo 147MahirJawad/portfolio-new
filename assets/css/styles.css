@@ -621,26 +621,6 @@ body.nav-open .site-header {
     background: #fff;
 }
 
-.portrait-badges { margin: 0; }
-.float-badge {
-    position: absolute;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    border: 1px solid var(--border-strong);
-    border-radius: 14px;
-    background: var(--surface);
-    box-shadow: var(--shadow-hover);
-    font-size: 13px;
-    line-height: 1.3;
-    color: var(--text-muted);
-}
-.float-badge strong { display: block; font-family: var(--font-display); font-size: 14px; }
-.float-badge .icon { color: var(--accent); }
-.float-badge .icon-gold { color: var(--gold); }
-.float-badge-a { left: -28px; bottom: 22%; }
-.float-badge-b { right: -22px; top: 8%; }
 
 .stats {
     display: grid;
@@ -1155,8 +1135,6 @@ a.contact-item:hover .contact-arrow { color: var(--accent); transform: translate
 @media (max-width: 960px) {
     .hero-grid { grid-template-columns: minmax(0, 1fr); }
     .hero-portrait { order: -1; width: min(100%, 300px); justify-self: start; }
-    .float-badge-a { left: auto; right: -40px; bottom: 14%; }
-    .float-badge-b { right: -40px; top: 10%; }
     .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .stat:nth-child(3) { border-left: 0; }
     .stat:nth-child(n + 3) { border-top: 1px solid var(--border); }
@@ -1175,18 +1153,9 @@ a.contact-item:hover .contact-arrow { color: var(--accent); transform: translate
 }
 
 @media (max-width: 560px) {
-    /* Small screens: compact portrait with the badges stacked beside it */
-    .hero-portrait {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        width: 100%;
-    }
-    .portrait-frame { width: 132px; flex: none; padding: 6px; border-radius: 22px; }
+    .hero-portrait { width: 160px; }
+    .portrait-frame { padding: 6px; border-radius: 22px; }
     .portrait-frame img { border-radius: 16px; }
-    .portrait-badges { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-    .float-badge { position: static; padding: 8px 12px; font-size: 12.5px; box-shadow: none; }
-    .float-badge strong { font-size: 13.5px; }
     .hero-cta .btn { flex: 1 1 auto; }
     .hero-cta .btn-link { flex: 0 0 100%; justify-content: flex-start; padding-left: 4px; }
     .stat { padding: 18px; }
@@ -1200,10 +1169,6 @@ a.contact-item:hover .contact-arrow { color: var(--accent); transform: translate
 
 @media (max-width: 340px) {
     .brand-name { display: none; }
-}
-
-@media (max-width: 420px) {
-    .portrait-frame { width: 112px; }
 }
 
 /* ---------- Motion preferences ---------- */
